@@ -18,8 +18,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/register', 'Auth\RegisterController@register')->name('api.register');
+
 Route::get('/post/{id}', 'PostsController@getPost')->name('post.getPost');
 Route::post('/post', 'PostsController@create')->name('post.create');
 Route::put('/post/{id}', 'PostsController@edit')->name('post.edit');
 Route::delete('/post/{id}', 'PostsController@delete')->name('post.delete');
 Route::get('/posts/{page?}', 'PostsController@index')->name('posts');
+
+Route::get('categories', 'CategoriesController@getCategories')->name('categories');

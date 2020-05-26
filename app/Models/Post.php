@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * App\Models\Post
@@ -30,6 +31,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Post extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'category_id',
         'author_id',

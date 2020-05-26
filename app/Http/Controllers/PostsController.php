@@ -43,7 +43,11 @@ class PostsController extends Controller
 
         $result = Post::create($save_data);
 
-        return response()->json($result);
+        return response()->json([
+            'status' => $result ? 'success' : 'error',
+            'data' => $result ?: [],
+            'message' => $result ? 'Saved' : 'Error',
+        ]);
     }
 
     public function edit($id, Request $request) {
